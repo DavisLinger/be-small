@@ -65,9 +65,9 @@ func beSmall(img image.Image) image.Image {
 	pcr = float64(maxSize) / 1600
 	outputX := float64(img.Bounds().Dx()) / pcr
 	outputY := float64(img.Bounds().Dy()) / pcr
-	fmt.Printf("Dx:%v,Dy:%v\n", img.Bounds().Dx(), img.Bounds().Dy())
-	fmt.Printf("pcr:%v\n", pcr)
-	fmt.Printf("output x:%v ,y:%v\n", outputX, outputY)
+	//fmt.Printf("Dx:%v,Dy:%v\n", img.Bounds().Dx(), img.Bounds().Dy())
+	//fmt.Printf("pcr:%v\n", pcr)
+	//fmt.Printf("output x:%v ,y:%v\n", outputX, outputY)
 	m := resize.Resize(uint(outputX), uint(outputY), img, resize.Lanczos3)
 	return m
 }
