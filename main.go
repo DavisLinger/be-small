@@ -7,11 +7,12 @@ import (
 	"os"
 	"path"
 	"runtime"
+	"strings"
 
 	"github.com/nfnt/resize"
 )
 
-const dirPath string = "/Users/mac/go/src/become-small"
+const dirPath string = "./picture"
 
 func main() {
 	// open "test.jpg"
@@ -41,7 +42,11 @@ func main() {
 			fmt.Printf("get file info failed,err:%v\n", err)
 			continue
 		}
-		img, err := readImg(info.Name())
+		name := dirs[i].Name()
+		if !strings.Contains(name, "/") {
+			name = dirPath + "/" + name
+		}
+		img, err := readImg(name)
 		if err != nil {
 			continue
 		}
